@@ -29,9 +29,29 @@ def cleanup(bar, msg):
     sys.exit()
 
 
+if len(sys.argv) < 2:
+    print('Usage:' + sys.argv[0] + '<#subset>')
+    print('Usage example: python get_imaging.py test')
+    sys.exit(2)
+
+print('Initialising GPU...')
+subset = sys.argv[1]
+
 if __name__ == "__main__":
     left_to_download = []
-    for i in range(300):
+    if subset == 'train':
+        img_range = range(210)
+    elif subset == 'test':
+        img_range = range(210,300)
+    elif subset == 'small_train':
+        img_range = range(20)
+    elif subset == 'mid_train':
+        img_range = range(100)
+ 
+    print(img_range)
+    #sys.exit()
+
+    for i in img_range:
         if not get_destination(i).exists():
             left_to_download = left_to_download + [i]
 

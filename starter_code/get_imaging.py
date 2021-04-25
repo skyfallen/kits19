@@ -45,8 +45,8 @@ if __name__ == "__main__":
         img_range = range(210,300)
     elif subset == 'small_train':
         img_range = range(20)
-    elif subset == 'mid_train':
-        img_range = range(100)
+    elif subset == 'tiny_train':
+        img_range = range(10)
  
     print(img_range)
     #sys.exit()

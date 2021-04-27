@@ -30,12 +30,17 @@ def cleanup(bar, msg):
 
 
 if len(sys.argv) < 2:
-    print('Usage:' + sys.argv[0] + '<#subset>')
-    print('Usage example: python get_imaging.py test')
+    print('Usage:' + sys.argv[0] + '<#subset>' + '<#loadingpace>')
+    print('Usage example: python get_imaging.py test all')
     sys.exit(2)
 
 print('Initialising GPU...')
 subset = sys.argv[1]
+
+if len(sys.argv) < 3:
+    pace = 'all'
+else:
+    pace = sys.argv[2]
 
 if __name__ == "__main__":
     left_to_download = []
@@ -48,12 +53,12 @@ if __name__ == "__main__":
     elif subset == 'tiny_train':
         img_range = range(10)
  
-    print(img_range)
-    #sys.exit()
 
     for i in img_range:
         if not get_destination(i).exists():
             left_to_download = left_to_download + [i]
+	if pace == 'one':
+	    break
 
 
     print("{} cases to download...".format(len(left_to_download)))

@@ -45,7 +45,7 @@ else:
 if len(sys.argv) < 4:
    startingfrom = 0
 else:
-   startingfrom = sys.argv[3]
+   startingfrom = int(sys.argv[3])
 
 if __name__ == "__main__":
     left_to_download = []

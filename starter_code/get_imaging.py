@@ -57,8 +57,8 @@ if __name__ == "__main__":
     for i in img_range:
         if not get_destination(i).exists():
             left_to_download = left_to_download + [i]
-	if pace == 'one':
-	    break
+        if pace == 'one':
+            break
 
 
     print("{} cases to download...".format(len(left_to_download)))
